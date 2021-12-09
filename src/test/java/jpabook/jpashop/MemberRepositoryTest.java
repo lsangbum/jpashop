@@ -1,3 +1,4 @@
+/*
 package jpabook.jpashop;
 
 import org.assertj.core.api.Assertions;
@@ -19,7 +20,6 @@ public class MemberRepositoryTest {
 
     @Test
     @Transactional
-    @Rollback(value = false)
     public void testMember() throws Exception {
         //given
         Member member = new Member();
@@ -38,4 +38,4 @@ public class MemberRepositoryTest {
 
     }
 
-}//class
+}//class*/
