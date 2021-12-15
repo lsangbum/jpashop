@@ -20,7 +20,7 @@ public class ItemRepository {
         if (item.getId() == null) {
             em.persist(item);
         }else {
-            em.merge(item);
+            em.merge(item); /* merge 를 호출하면 넘어온 파라미터의 식별자 값으로 DB 에서 데이터를 추출 후 넘어온 파라미터 값으로 찾은 데이터를 업데이트*/
         }
     }
 

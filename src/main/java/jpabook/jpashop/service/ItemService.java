@@ -19,8 +19,20 @@ public class ItemService {
      * 상품 저장
      */
     @Transactional
-    public void savaItem(Item item) {
+    public void saveItem(Item item) {
         itemRepository.save(item);
+    }
+
+    /**
+     * 상품 수정 (변경감지)
+     */
+    @Transactional
+    public Item updateItem(Long itemId, String name, int price, int stockQuantity) {
+
+        Item findItem = itemRepository.findOne(itemId);
+        findItem.change(itemId, name, price, stockQuantity);
+        /** 따로 persist, merge 하지 않아도 JPA 가 영속성 엔티티의 변경감지를 하여 처리해줌*/
+        return findItem;
     }
 
     /**
@@ -38,3 +50,4 @@ public class ItemService {
     }
 
 }//class
+
